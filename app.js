@@ -52,12 +52,12 @@ const CALCULATE = (VIT=0, DEX=0, LUK=0,
 }
 
 console.log(
-  'Total Shield Boomerang Damage: ',
+  'Total Shield Boomerang Damage with Zapdos and Food Buff: ',
   CALCULATE(99+94, 40+37, 0+23, 7, 1438, 180, '90%', '25%', true)
 );
 
 console.log(
-  'Total Shield Boomerang Damage: ',
+  'Total Shield Boomerang Damage with Medusa: ',
   CALCULATE(99+89, 40+37, 0+23, 7, 1289, 180, '100%', '25%', true)
 );
 
