@@ -1,16 +1,4 @@
 /**
- * Rounds a number
- * @param {float} value - Number value to be rounded
- */
-const ROUNDED = value => Math.round(value);
-
-/**
- * Converts percent to decimal
- * @param {string} percent - String value of the percentage
- */
-const PERCENT_VALUE = percent => parseFloat(percent) / 100.0;
-
-/**
  * Calculate Shield Boomerang Damage
  * @param {integer} VIT - Vitality
  * @param {integer} DEX - Dexterity
@@ -51,22 +39,40 @@ const CALCULATE = (VIT=0, DEX=0, LUK=0,
   return TOTAL_SHIELD_BOOM_DAMAGE;
 }
 
-console.log(
-  'Total Shield Boomerang Damage with Zapdos and Food Buff: ',
-  CALCULATE(99+94, 40+37, 0+23, 7, 1438, 180, '90%', '25%', true)
-);
+/**
+ * Rounds a number
+ * @param {float} value - Number value to be rounded
+ */
+const ROUNDED = value => Math.round(value);
 
-console.log(
-  'Total Shield Boomerang Damage with Medusa: ',
-  CALCULATE(99+89, 40+37, 0+23, 7, 1289, 180, '100%', '25%', true)
-);
+/**
+ * Converts percent to decimal
+ * @param {string} percent - String value of the percentage
+ */
+const PERCENT_VALUE = percent => parseFloat(percent) / 100.0;
 
-console.log(
-  'Total Shield Boomerang Damage: ',
-  CALCULATE(100, 55, 20, 4, 0, 0, '0%', '0%', true)
-);
-
-console.log(
-  'Total Shield Boomerang Damage: ',
-  CALCULATE(100, 55, 20, 7, 0, 0, '0%', '0%', true)
-);
+/**
+ * @description Execute the app
+ */
+const app = () => {
+  console.log(
+    'Total Shield Boomerang Damage with Zapdos and Food Buff: ',
+    CALCULATE(99+94, 40+37, 0+23, 7, 1438, 180, '90%', '25%', true)
+  );
+  
+  console.log(
+    'Total Shield Boomerang Damage with Medusa: ',
+    CALCULATE(99+89, 40+37, 0+23, 7, 1289, 180, '100%', '25%', true)
+  );
+  
+  console.log(
+    'Total Shield Boomerang Damage: ',
+    CALCULATE(100, 55, 20, 4, 0, 0, '0%', '0%', true)
+  );
+  
+  console.log(
+    'Total Shield Boomerang Damage: ',
+    CALCULATE(100, 55, 20, 7, 0, 0, '0%', '0%', true)
+  );  
+}
+app();
