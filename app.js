@@ -10,7 +10,7 @@
  * @param {string} RUNE_MULTIPLIER_PERCENTAGE - Percentage Damage multiplier from Runes
  * @param {boolean} WEARING_MIRROR_SHIELD - True if character is wearing mirror shield
  */
-const CALCULATE = (VIT=0, DEX=0, LUK=0, 
+const calculate = (VIT=0, DEX=0, LUK=0, 
                   SHIELD_REFINE_LEVEL=0, 
                   ATK=0, REFINE_ATK=0, 
                   JOB_BREAKTHROUGH_MULTIPLIER_PERCENTAGE='0%', 
@@ -18,16 +18,16 @@ const CALCULATE = (VIT=0, DEX=0, LUK=0,
                   WEARING_MIRROR_SHIELD=false) => {
 
   const SKILL_MULTIPLIER_PERCENTAGE = '600%';
-  const SKILL_MULTIPLIER = PERCENT_VALUE(SKILL_MULTIPLIER_PERCENTAGE);
-  const JOB_BREAKTHROUGH_MULTIPLIER = PERCENT_VALUE(JOB_BREAKTHROUGH_MULTIPLIER_PERCENTAGE);
-  const RUNE_MULTIPLIER = PERCENT_VALUE(RUNE_MULTIPLIER_PERCENTAGE);
+  const SKILL_MULTIPLIER = percentToDecimal(SKILL_MULTIPLIER_PERCENTAGE);
+  const JOB_BREAKTHROUGH_MULTIPLIER = percentToDecimal(JOB_BREAKTHROUGH_MULTIPLIER_PERCENTAGE);
+  const RUNE_MULTIPLIER = percentToDecimal(RUNE_MULTIPLIER_PERCENTAGE);
   const MIRROR_SHIELD_MULTIPLIER_PERCENTAGE = '15%';
-  const MIRROR_SHIELD_MULTIPLIER = PERCENT_VALUE(MIRROR_SHIELD_MULTIPLIER_PERCENTAGE);
+  const MIRROR_SHIELD_MULTIPLIER = percentToDecimal(MIRROR_SHIELD_MULTIPLIER_PERCENTAGE);
   const SHIELD_BOOM_DAMAGE = (SKILL_MULTIPLIER * 
                               ((VIT * 8) + 
-                              (ROUNDED(VIT*VIT/100)*4) + 
-                              ROUNDED(DEX/5) + 
-                              ROUNDED(LUK/5) + 
+                              (rounded(VIT*VIT/100)*4) + 
+                              rounded(DEX/5) + 
+                              rounded(LUK/5) + 
                               (SHIELD_REFINE_LEVEL*SHIELD_REFINE_LEVEL*2)) +
                               ((ATK+REFINE_ATK)*JOB_BREAKTHROUGH_MULTIPLIER));
   const RUNED_SHIELD_BOOM_DAMAGE = SHIELD_BOOM_DAMAGE + (SHIELD_BOOM_DAMAGE*RUNE_MULTIPLIER);
@@ -41,13 +41,13 @@ const CALCULATE = (VIT=0, DEX=0, LUK=0,
  * Rounds a number
  * @param {float} value - Number value to be rounded
  */
-const ROUNDED = value => Math.round(value);
+const rounded = value => Math.round(value);
 
 /**
  * Converts percent to decimal
  * @param {string} percent - String value of the percentage
  */
-const PERCENT_VALUE = percent => parseFloat(percent) / 100.0;
+const percentToDecimal = percent => parseFloat(percent) / 100.0;
 
 /**
  * @description Execute the app
@@ -84,7 +84,7 @@ const app = () => {
   inputs.forEach(input => {
     console.log(
       input.description,
-      CALCULATE(
+      calculate(
         input.VIT,
         input.DEX,
         input.LUK,
