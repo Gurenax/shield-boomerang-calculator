@@ -3,7 +3,7 @@
  * @param {integer} VIT - Vitality
  * @param {integer} DEX - Dexterity
  * @param {integer} LUK - Luck
- * @param {integer} SHIELD_REFINING_LEVEL - Shield Refinement Level
+ * @param {integer} SHIELD_REFINE_LEVEL - Shield Refinement Level
  * @param {integer} ATK - Attack
  * @param {integer} REFINE_ATK - Refine Attack
  * @param {string} JOB_BREAKTHROUGH_MULTIPLIER_PERCENTAGE  - Percentage Attack multiplier from Job Breakthrough
@@ -11,7 +11,7 @@
  * @param {boolean} WEARING_MIRROR_SHIELD - True if character is wearing mirror shield
  */
 const CALCULATE = (VIT=0, DEX=0, LUK=0, 
-                  SHIELD_REFINING_LEVEL=0, 
+                  SHIELD_REFINE_LEVEL=0, 
                   ATK=0, REFINE_ATK=0, 
                   JOB_BREAKTHROUGH_MULTIPLIER_PERCENTAGE='0%', 
                   RUNE_MULTIPLIER_PERCENTAGE='0%',
@@ -28,7 +28,7 @@ const CALCULATE = (VIT=0, DEX=0, LUK=0,
                               (ROUNDED(VIT*VIT/100)*4) + 
                               ROUNDED(DEX/5) + 
                               ROUNDED(LUK/5) + 
-                              (SHIELD_REFINING_LEVEL*SHIELD_REFINING_LEVEL*2)) +
+                              (SHIELD_REFINE_LEVEL*SHIELD_REFINE_LEVEL*2)) +
                               ((ATK+REFINE_ATK)*JOB_BREAKTHROUGH_MULTIPLIER));
   const RUNED_SHIELD_BOOM_DAMAGE = SHIELD_BOOM_DAMAGE + (SHIELD_BOOM_DAMAGE*RUNE_MULTIPLIER);
   const TOTAL_SHIELD_BOOM_DAMAGE =
@@ -55,24 +55,48 @@ const PERCENT_VALUE = percent => parseFloat(percent) / 100.0;
  * @description Execute the app
  */
 const app = () => {
-  console.log(
-    'Total Shield Boomerang Damage with Zapdos and Food Buff: ',
-    CALCULATE(99+94, 40+37, 0+23, 7, 1438, 180, '90%', '25%', true)
-  );
-  
-  console.log(
-    'Total Shield Boomerang Damage with Medusa: ',
-    CALCULATE(99+89, 40+37, 0+23, 7, 1289, 180, '100%', '25%', true)
-  );
-  
-  console.log(
-    'Total Shield Boomerang Damage: ',
-    CALCULATE(100, 55, 20, 4, 0, 0, '0%', '0%', true)
-  );
-  
-  console.log(
-    'Total Shield Boomerang Damage: ',
-    CALCULATE(100, 55, 20, 7, 0, 0, '0%', '0%', true)
-  );  
+  // Inputs
+  const inputs = [
+    {
+      description: 'Total Shield Boomerang Damage with Zapdos and Food Buff: ',
+      VIT: 99+94,
+      DEX: 40+37,
+      LUK: 0+23,
+      SHIELD_REFINE_LEVEL: 7,
+      ATK: 1438,
+      REFINE_ATK: 180,
+      JOB_BREAKTHROUGH_MULTIPLIER: '90%',
+      RUNE_MULTIPLIER: '25%',
+      WEARING_MIRROR_SHIELD: true
+    },
+    {
+      description: 'Total Shield Boomerang Damage with Medusa: ',
+      VIT: 99+89,
+      DEX: 40+37,
+      LUK: 0+23,
+      SHIELD_REFINE_LEVEL: 7,
+      ATK: 1289,
+      REFINE_ATK: 180,
+      JOB_BREAKTHROUGH_MULTIPLIER: '90%',
+      RUNE_MULTIPLIER: '25%',
+      WEARING_MIRROR_SHIELD: true
+    }
+  ];
+
+  inputs.forEach(input => {
+    console.log(
+      input.description,
+      CALCULATE(
+        input.VIT,
+        input.DEX,
+        input.LUK,
+        input.SHIELD_REFINE_LEVEL,
+        input.ATK,
+        input.REFINE_ATK,
+        input.JOB_BREAKTHROUGH_MULTIPLIER,
+        input.RUNE_MULTIPLIER,
+        input.WEARING_MIRROR_SHIELD
+    ));
+  })
 }
 app();
