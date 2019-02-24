@@ -56,7 +56,7 @@ const app = () => {
   // Inputs
   const inputs = [
     {
-      description: 'Total Shield Boomerang Damage with Zapdos and Food Buff: ',
+      description: 'Total Shield Boomerang Damage with Rye Pet and Food Buff: ',
       VIT: 99+94,
       DEX: 40+37,
       LUK: 0+23,
@@ -68,7 +68,7 @@ const app = () => {
       WEARING_MIRROR_SHIELD: true
     },
     {
-      description: 'Total Shield Boomerang Damage with Medusa: ',
+      description: 'Total Shield Boomerang Damage with Isis Pet: ',
       VIT: 99+89,
       DEX: 40+37,
       LUK: 0+23,
