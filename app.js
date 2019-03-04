@@ -56,6 +56,18 @@ const app = () => {
   // Inputs
   const inputs = [
     {
+      description: 'Total Shield Boomerang Damage - Level 95 with Rye Pet: ',
+      VIT: 99+100,
+      DEX: 40+35,
+      LUK: 1+23,
+      SHIELD_REFINE_LEVEL: 7,
+      ATK: 1486,
+      REFINE_ATK: 191,
+      JOB_BREAKTHROUGH_MULTIPLIER: '100%',
+      RUNE_MULTIPLIER: '25%',
+      WEARING_MIRROR_SHIELD: true
+    },
+    {
       description: 'Total Shield Boomerang Damage with Rye Pet and Food Buff: ',
       VIT: 99+94,
       DEX: 40+37,
