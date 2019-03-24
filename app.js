@@ -56,6 +56,18 @@ const app = () => {
   // Inputs
   const inputs = [
     {
+      description: 'Total Shield Boomerang Damage - Level 98 with 3-star food buffs: ',
+      VIT: 99+101,
+      DEX: 40+39,
+      LUK: 0+21,
+      SHIELD_REFINE_LEVEL: 7,
+      ATK: 1904,
+      REFINE_ATK: 287,
+      JOB_BREAKTHROUGH_MULTIPLIER: '100%',
+      RUNE_MULTIPLIER: '25%',
+      WEARING_MIRROR_SHIELD: true
+    },
+    {
       description: 'Total Shield Boomerang Damage - Level 97 with basic food buffs: ',
       VIT: 99+100,
       DEX: 41+39,
