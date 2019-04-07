@@ -157,4 +157,6 @@ const app = () => {
     ));
   })
 }
+
+// Execute app
 app();
